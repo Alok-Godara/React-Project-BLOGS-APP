@@ -1,12 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import store from "./store/store.js";
+import { Provider } from "react-redux";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white '>
-    <App />
-    </div>
-  </StrictMode>,
-)
+    <Provider  store={store}>
+      <App />
+    </Provider>
+  </StrictMode>
+);

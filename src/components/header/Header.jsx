@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Logo, LogoutButton } from "../index";
+import {Container, Logo, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux"; //to access the Redux store
 import { useNavigate } from "react-router-dom";// to programmatically navigate to different routes
@@ -60,7 +60,7 @@ function Header() {
             )}
             {authStatus && (
               <li>
-                <LogoutButton />
+                <LogoutBtn />
               </li>
             )}
           </ul>

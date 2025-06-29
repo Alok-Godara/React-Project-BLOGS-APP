@@ -21,4 +21,4 @@ function Input({ label = "", type = "text", className = "", ...props }, ref) {
   );
 }
 
-export default Input;
+export default React.forwardRef(Input);

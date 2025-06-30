@@ -29,7 +29,7 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full m-10">
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
@@ -38,7 +38,7 @@ function Login() {
             <Logo width="100%" />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">
+        <h2 className="text-center text-2xl font-bold leading-tight text-gray-700">
           Sign in to your account
         </h2>
         <p className="mt-2 text-center text-base text-black/60">
@@ -52,7 +52,7 @@ function Login() {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className="mt-8">
-          <div className="space-y-5">
+          <div className="space-y-5 text-gray-700">
             <Input
               label="Email: "
               placeholder="Enter your email"
@@ -74,7 +74,7 @@ function Login() {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full mt-4">
               Sign in
             </Button>
           </div>

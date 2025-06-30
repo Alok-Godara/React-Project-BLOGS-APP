@@ -21,11 +21,7 @@ export class AuthService {
         password,
         name
       );
-      if (userAccount) {
-        return this.account.createEmailPasswordSession(email, password);
-      } else {
-        return userAccount;
-      }
+      return userAccount;
     } catch (error) {
       console.log("Appwrite service :: createAccount :: error", error);
     }
@@ -48,7 +44,7 @@ export class AuthService {
       const user = await this.account.get();
       return user;
     } catch (error) {
-      console.log("Appwrite service :: getCurrentUser :: error", error);
+      console.error("Appwrite service :: getCurrentUser :: error", error);
     }
 
     return null;

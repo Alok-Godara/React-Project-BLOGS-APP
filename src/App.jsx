@@ -23,14 +23,12 @@ function App() {
   },)
 
   return !loading ? (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white' >
-      <div>
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+    <div className='flex flex-col min-h-screen bg-gray-900 text-white'>
+      <Header />
+      <main className='flex-1 flex flex-col items-center justify-center w-full'>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   ) : null
 

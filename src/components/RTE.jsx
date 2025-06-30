@@ -1,5 +1,6 @@
 import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import conf from "../conf/conf";
 import { Controller } from "react-hook-form";
 
 export default function RTE({ name, control, label, defaultValue = "" }) {
@@ -12,11 +13,15 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
+            apiKey={conf.tinyMCEApiKey}
+            onEditorChange={onChange}
             initialValue={defaultValue}
             init={{
-              initialValue: defaultValue,
               height: 500,
               menubar: true,
+              selector: "textarea",
+              skin: "oxide-dark", // Applies the dark UI skin
+              content_css: "dark", // Applies dark styling to the content area
               plugins: [
                 "image",
                 "advlist",
@@ -44,7 +49,6 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
               content_style:
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
-            onEditorChange={onChange}
           />
         )}
       />

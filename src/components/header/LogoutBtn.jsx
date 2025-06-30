@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import authService from "../../appwrite/auth";
 import { logout } from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
-import { useEffect,useState } from "react";
 
 function LogoutBtn() {
   const dispatch = useDispatch();
@@ -15,14 +14,7 @@ function LogoutBtn() {
     });
   };
 
-  const reduxUserName = useSelector((state) => state.auth.userData?.name);
-  const [userName, setUserName] = useState("");
-
-  useEffect(() => {
-    if (reduxUserName) {
-      setUserName(reduxUserName);
-    }
-  }, [reduxUserName]);
+  const userName = useSelector((state) => state.auth.userData?.name);
 
   return (
     <button

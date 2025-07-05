@@ -12,6 +12,8 @@ function Home() {
 
   const isLoggedIn = useSelector((state) => state.auth.status);
 
+  const [Loading , setLoading] = useState(true);
+
   useEffect(() => {
     if (isLoggedIn) {
       appwriteService.getPosts().then((posts_appwrite) => {
@@ -21,9 +23,12 @@ function Home() {
             posts.filter((post) => post.userId === userData.$id)
           );
         }
+        setLoading(false);
       });
     }
-  }, [userData, userData]);
+  }, [userData]);
+
+  if(Loading && isLoggedIn) return <div>Loading...</div>
 
   if (isLoggedIn === false) {
     return (

@@ -4,16 +4,23 @@ import appwriteService from "../appwrite/config";
 import { Logo } from "../components/index";
 
 function AllPosts() {
-
   const [posts, setPosts] = useState([]);
-  
+
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     appwriteService.getPosts([]).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
+      setLoading(false);
     });
-  }, [posts]);
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
 
   if (posts.length === 0) {
     return (

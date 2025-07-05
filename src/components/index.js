@@ -23,7 +23,7 @@ export { default as Signup } from "./Signup";
 export { default as Login } from "./Login";
 export { default as Button } from "./Button";
 export { default as PostForm } from "./post-form/PostForm";
-export { default as PostCard } from "./PostCard";
+export { default as PostCard } from "./Postcard";
 export { default as AuthLayout } from "./AuthLayout";
 export { default as CustomSelect } from "./CustomSelect";
 export { default as Input } from "./Input";
